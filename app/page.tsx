@@ -198,28 +198,21 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
                     {tier.price.toFixed(2)} $ <span className="text-xs font-sans text-gray-400 font-normal">CAD</span>
                   </div>
                   {isCurrentActive && (
-                    <div className="space-y-1 max-w-[220px]">
-                      <div className="flex justify-between text-[10px] font-sans">
-                        <span className="text-gray-300">{t.tickets.available}</span>
-                        <span className="font-bold text-amber-400">🔥 {available} {t.tickets.places}</span>
-                      </div>
-                      <div className="h-1.5 bg-noir-surface rounded-full overflow-hidden border border-white/10">
-                        <div className="h-full rounded-full bg-gradient-to-r from-bordeaux to-ember-light transition-all duration-1000"
-                          style={{ width: `${pct}%` }} />
-                      </div>
+                    <div className="text-[11px] font-sans text-amber-400 font-bold mt-1">
+                      🔥 {available} {t.tickets.places} {t.tickets.available.toLowerCase()}
                     </div>
                   )}
                 </div>
 
                 {isCurrentActive ? (
-                  <div className="flex items-center gap-2 self-center">
+                  <div className="flex items-center justify-center gap-3 self-center sm:self-center mt-2 sm:mt-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-white/10 w-full sm:w-auto">
                     <button onClick={() => updateQty(tier, -1)} disabled={qty === 0}
-                      className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-20 text-white text-xl font-bold transition-all flex items-center justify-center active:scale-90 border border-white/15">
+                      className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-20 text-white text-2xl font-bold transition-all flex items-center justify-center active:scale-90 border border-white/15 shadow-md">
                       −
                     </button>
-                    <span className="text-lg font-black font-mono w-7 text-center text-white tabular-nums">{qty}</span>
+                    <span className="text-xl font-black font-mono w-8 text-center text-white tabular-nums">{qty}</span>
                     <button onClick={() => updateQty(tier, 1, qty === 0)} disabled={qty >= Math.min(available, 10)}
-                      className="w-10 h-10 rounded-full bg-bordeaux hover:bg-bordeaux-light disabled:opacity-20 text-white text-xl font-bold transition-all flex items-center justify-center shadow-md shadow-bordeaux/30 active:scale-90">
+                      className="w-11 h-11 rounded-full bg-bordeaux hover:bg-bordeaux-light disabled:opacity-20 text-white text-2xl font-bold transition-all flex items-center justify-center shadow-lg shadow-bordeaux/40 active:scale-90 border border-bordeaux-light/50">
                       +
                     </button>
                   </div>
