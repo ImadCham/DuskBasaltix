@@ -89,7 +89,7 @@ function CheckoutForm({
               📅 {t.successPage.date}
             </p>
             <p className="text-[11px] text-gray-400 font-sans">
-              📍 356 Av Mont-Royal E, Montréal
+              📍 Barbossa — 3956 A Boul. Saint-Laurent
             </p>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function PaymentModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-noir/95 backdrop-blur-2xl animate-fade-in overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-noir/70 backdrop-blur-md animate-fade-in overflow-y-auto">
       <div className="glass-card-fusion w-full max-w-lg rounded-3xl p-6 sm:p-8 border-2 border-bordeaux/40 relative shadow-2xl overflow-hidden my-auto">
         
         {/* Background Subtle Gradient Blobs */}
