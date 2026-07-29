@@ -188,16 +188,12 @@ function SuccessContent() {
 
       <ToastContainer />
 
-      {/* Background glow effects */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div
-          className="absolute top-1/4 left-1/4 w-[550px] h-[550px] rounded-full opacity-40 blur-[150px]"
-          style={{ background: "radial-gradient(circle, #7A1F2B 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-[550px] h-[550px] rounded-full opacity-40 blur-[150px]"
-          style={{ background: "radial-gradient(circle, #8C2500 0%, transparent 70%)" }}
-        />
+      {/* ATMOSPHERIC GLOW ORBS */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute -top-20 -left-20 w-[300px] h-[300px] sm:w-[550px] sm:h-[550px] rounded-full opacity-40 blur-[100px] sm:blur-[150px] animate-orb-1"
+          style={{ background: "radial-gradient(circle, #7A1F2B 0%, transparent 70%)" }} />
+        <div className="absolute top-1/3 -right-20 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full opacity-35 blur-[100px] sm:blur-[160px] animate-orb-2"
+          style={{ background: "radial-gradient(circle, #8C2500 0%, transparent 70%)" }} />
       </div>
 
       <div className="relative z-10 w-full max-w-3xl mx-auto text-center">
