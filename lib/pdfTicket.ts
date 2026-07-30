@@ -51,7 +51,7 @@ export async function generateTicketPDF(params: {
   doc.setFontSize(7.5);
   doc.setFont("helvetica", "bold");
   doc.text(
-    "14/08/2026   Barbossa - 3956A St-Laurent   22:00-03:00",
+    "14/08/2026   CHI Restaurant Bar - 3977 St-Laurent   22:00-03:00",
     width / 2,
     18.5,
     { align: "center" }

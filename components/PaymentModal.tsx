@@ -89,7 +89,7 @@ function CheckoutForm({
               📅 {t.successPage.date}
             </p>
             <p className="text-[11px] text-gray-400 font-sans">
-              📍 Barbossa — 3956 A Boul. Saint-Laurent
+              📍 CHI Restaurant Bar — 3977 Boul. Saint-Laurent
             </p>
           </div>
         </div>

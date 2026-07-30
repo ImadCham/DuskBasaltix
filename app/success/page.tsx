@@ -98,8 +98,8 @@ function SuccessContent() {
 
   const handleShareStory = () => {
     const shareText = lang === "en"
-      ? `I'm going to DUSK EVE × BASALTE at Barbossa in Montreal 🎟️🔥\nGet your tickets: ${window.location.origin}`
-      : `Je vais à DUSK EVE × BASALTE au Barbossa à Montréal 🎟️🔥\nRéserve ta place: ${window.location.origin}`;
+      ? `I'm going to DUSK EVE × BASALTE at CHI Restaurant Bar in Montreal 🎟️🔥\nGet your tickets: ${window.location.origin}`
+      : `Je vais à DUSK EVE × BASALTE au CHI Restaurant Bar à Montréal 🎟️🔥\nRéserve ta place: ${window.location.origin}`;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(shareText);
       showToast(t.successPage.shareCopied, "success");
@@ -119,7 +119,7 @@ function SuccessContent() {
         ticketId: ticket.qr_code_data || ticket.id,
         qrCodeDataUrl: ticket.qrCodeDataUrl,
         eventDate: "Vendredi 14 Août 2026 · 22h00 — 03h00",
-        eventVenue: "Barbossa — 3956 A Boul. Saint-Laurent, Montréal, QC H2W 1Y3",
+        eventVenue: "CHI Restaurant Bar — 3977 Boul. Saint-Laurent, Montréal, QC",
       });
       showToast(
         lang === "en" ? "PDF Ticket downloaded!" : "Billet PDF téléchargé avec succès !",
@@ -405,7 +405,7 @@ function SuccessContent() {
         {/* NAVIGATION LINKS — Direct Google Maps Link Button */}
         <div className="flex flex-col sm:flex-row gap-3">
           <a
-            href="https://maps.google.com/?q=Barbossa+3956+A+Boul.+Saint-Laurent+Montreal+QC+H2W+1Y3"
+            href="https://maps.google.com/?q=CHI+Restaurant+Bar+3977+Boul.+Saint-Laurent+Montreal+QC"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 py-4 px-4 rounded-2xl text-xs font-black tracking-[2px] uppercase text-white text-center bg-noir-surface hover:bg-white/10 transition-all border border-white/20 flex items-center justify-center gap-2"

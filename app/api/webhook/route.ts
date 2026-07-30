@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
 
     const eventName = "DUSK EVE × BASALTE";
     const eventDate = "Vendredi 14 Août 2026 · 22h00 — 03h00";
-    const eventVenue = "Barbossa — 3956 A Boul. Saint-Laurent, Montréal, QC H2W 1Y3";
+    const eventVenue = "CHI Restaurant Bar — 3977 Boul. Saint-Laurent, Montréal, QC";
 
     // 4. Generate PDF Ticket Attachment Buffer
     let pdfBuffer: Buffer | null = null;
