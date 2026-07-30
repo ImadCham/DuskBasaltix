@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import Link from "next/link";
 
 type ScanResult = {
   valid: boolean;
@@ -26,7 +27,7 @@ export default function ScanPage() {
       const timer = setTimeout(() => {
         setResult(null);
         setScanning(false);
-      }, 5000);
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, [result]);
@@ -107,33 +108,42 @@ export default function ScanPage() {
   return (
     <main className="min-h-screen bg-noir flex flex-col">
       {/* Header */}
-      <header className="py-6 px-6 flex items-center justify-between border-b border-white/5">
-        <div>
-          <p className="text-xs tracking-[4px] uppercase text-gray-600 mb-1">Scanner</p>
-          <h1 className="font-serif text-xl font-bold text-white">
-            XPERIMENTAL VOL.2
-          </h1>
+      <header className="py-5 px-6 flex items-center justify-between border-b border-white/10 bg-noir-surface/80 backdrop-blur-md">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all border border-white/15 active:scale-95"
+            title="Retour au site"
+          >
+            ←
+          </Link>
+          <div>
+            <p className="text-[10px] font-mono tracking-[3px] uppercase text-gray-400">Scanner Staff</p>
+            <h1 className="font-serif text-lg font-bold text-white tracking-wide">
+              DUSK EVE × BASALTE
+            </h1>
+          </div>
         </div>
         <div className="flex gap-2">
           <button
             onClick={() => setMode("camera")}
-            className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
               mode === "camera"
                 ? "text-white"
-                : "bg-white/5 text-gray-500"
+                : "bg-white/5 text-gray-400"
             }`}
-            style={mode === "camera" ? { background: "linear-gradient(135deg, #7A1F2B, #7B2FF7)" } : {}}
+            style={mode === "camera" ? { background: "linear-gradient(135deg, #7A1F2B, #8C2500)" } : {}}
           >
             Caméra
           </button>
           <button
             onClick={() => setMode("manual")}
-            className={`px-4 py-2 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold tracking-wider uppercase transition-all ${
               mode === "manual"
                 ? "text-white"
-                : "bg-white/5 text-gray-500"
+                : "bg-white/5 text-gray-400"
             }`}
-            style={mode === "manual" ? { background: "linear-gradient(135deg, #7A1F2B, #7B2FF7)" } : {}}
+            style={mode === "manual" ? { background: "linear-gradient(135deg, #7A1F2B, #8C2500)" } : {}}
           >
             Manuel
           </button>
@@ -144,36 +154,50 @@ export default function ScanPage() {
         {/* Result overlay */}
         {result && (
           <div
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center p-8 border-4 text-center"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 border-4 text-center animate-fade-in"
             style={getResultStyle()}
           >
-            <div className="text-8xl font-bold mb-6 font-serif">
+            <div className="text-7xl sm:text-8xl font-bold mb-4 font-serif">
               {getResultIcon()}
             </div>
-            <h2 className="font-serif text-3xl font-bold text-white mb-4">
-              {result.valid ? "VALIDE" : result.reason === "ALREADY_SCANNED" ? "DÉJÀ SCANNÉ" : "INVALIDE"}
+            <h2 className="font-serif text-2xl sm:text-4xl font-black text-white mb-2">
+              {result.valid ? "BILLET VALIDE" : result.reason === "ALREADY_SCANNED" ? "DÉJÀ SCANNÉ" : "INVALIDE"}
             </h2>
+            <p className="text-sm text-white/80 font-sans mb-4 max-w-xs">{result.message}</p>
+
             {result.name && (
-              <p className="text-xl text-white/90 font-semibold mb-2">{result.name}</p>
+              <p className="text-xl sm:text-2xl text-white font-bold mb-1">{result.name}</p>
             )}
             {result.tier && (
-              <p className="text-sm text-white/60 mb-4">{result.tier}</p>
+              <p className="text-xs text-white/70 uppercase tracking-widest bg-black/30 px-3 py-1 rounded-full mb-4">
+                {result.tier}
+              </p>
             )}
             {result.scanned_at && (
-              <p className="text-xs text-white/50">
-                Scanné le{" "}
+              <p className="text-xs text-white/60 font-mono">
+                Scanné à{" "}
                 {new Date(result.scanned_at).toLocaleString("fr-CA", {
                   hour: "2-digit",
                   minute: "2-digit",
+                  second: "2-digit",
                 })}
               </p>
             )}
-            <button
-              onClick={() => setResult(null)}
-              className="mt-8 px-8 py-3 bg-white/20 rounded-2xl text-white font-bold text-sm tracking-widest uppercase"
-            >
-              Scanner suivant
-            </button>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full max-w-xs">
+              <button
+                onClick={() => setResult(null)}
+                className="w-full py-4 px-6 bg-white text-black font-black text-xs tracking-[2px] uppercase rounded-xl shadow-2xl hover:scale-105 transition-transform"
+              >
+                Scanner suivant →
+              </button>
+              <Link
+                href="/"
+                className="w-full py-4 px-6 bg-black/40 border border-white/30 text-white font-bold text-xs tracking-[2px] uppercase rounded-xl text-center hover:bg-black/60 transition-all"
+              >
+                ← Retour au site
+              </Link>
+            </div>
           </div>
         )}
 
