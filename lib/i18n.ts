@@ -29,9 +29,9 @@ export const translations = {
       duskTitle: "DUSK EVE",
       basalteTitle: "BASALTE",
       duskTag: "★ All-Female African Electronic",
-      duskDesc: "Élégance dramatique · Afro House Underground",
+      duskDesc: "Élégance dramatique · Afro House & Afro Tech",
       basalteTag: "⚡ Music With No Boundaries",
-      basalteDesc: "Esthétique nocturne brute · Club Underground",
+      basalteDesc: "Esthétique nocturne brute · Afro House & Afro Tech",
       dateVenue: "📅 Vendredi 14 Août 2026 · 22h00 — 03h00",
       venueAddress: "📍 CHI Restaurant Bar — 3977 Boul. Saint-Laurent, Montréal, QC",
       bookCta: "Réserver mes billets",
@@ -51,10 +51,10 @@ export const translations = {
       title: "Deux Univers · Une Nuit Électrique",
       duskTitle: "DUSK EVE SOUNDS",
       duskText:
-        "Collectif all-female afro electronic underground. Une expérience sonore sombre, élégante et dramatique, fusionnant les rythmes d'Afrique australe et d'Afrique de l'Ouest avec la culture club contemporaine.",
+        "Collectif all-female afro electronic underground. Une expérience sonore sombre, élégante et dramatique, axée 100% sur l'Afro House et l'Afro Tech, fusionnant les rythmes d'Afrique avec la culture club contemporaine.",
       basalteTitle: "BASALTE",
       basalteText:
-        "Collectif \"Music With No Boundaries\" basé à Tiohtiàke / Montréal. Esthétique nocturne brute, énergie électrique et sonorités transgressives sans concession.",
+        "Collectif \"Music With No Boundaries\" basé à Tiohtiàke / Montréal. Une énergie brute et électrique dédiée aux sonorités Afro House et Afro Tech.",
     },
     tickets: {
       badge: "Billetterie Officielle",
@@ -136,9 +136,9 @@ export const translations = {
       duskTitle: "DUSK EVE",
       basalteTitle: "BASALTE",
       duskTag: "★ All-Female African Electronic",
-      duskDesc: "Dramatic elegance · Afro House Underground",
+      duskDesc: "Dramatic elegance · Afro House & Afro Tech",
       basalteTag: "⚡ Music With No Boundaries",
-      basalteDesc: "Raw nocturnal aesthetic · Underground Club",
+      basalteDesc: "Raw nocturnal aesthetic · Afro House & Afro Tech",
       dateVenue: "📅 Friday August 14, 2026 · 10:00 PM — 03:00 AM",
       venueAddress: "📍 CHI Restaurant Bar — 3977 Boul. Saint-Laurent, Montreal, QC",
       bookCta: "Book my tickets",
@@ -158,10 +158,10 @@ export const translations = {
       title: "Two Universes · One Electric Night",
       duskTitle: "DUSK EVE SOUNDS",
       duskText:
-        "All-female afro electronic underground collective. A dark, elegant and dramatic sound experience, fusing Southern and West African rhythms with contemporary club culture.",
+        "All-female afro electronic underground collective. A dark, elegant and dramatic sound experience, 100% focused on Afro House & Afro Tech rhythms fused with contemporary club culture.",
       basalteTitle: "BASALTE",
       basalteText:
-        "\"Music With No Boundaries\" collective based in Tiohtiàke / Montreal. Raw nocturnal aesthetic, electric energy and uncompromising transgressive sounds.",
+        "\"Music With No Boundaries\" collective based in Tiohtiàke / Montreal. Raw nocturnal aesthetic and electric energy dedicated to Afro House & Afro Tech sounds.",
     },
     tickets: {
       badge: "Official Ticketing",
