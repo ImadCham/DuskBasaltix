@@ -398,12 +398,14 @@ export default function Home() {
       <ToastContainer />
       <Navbar />
 
-      {/* ATMOSPHERIC GLOW ORBS */}
+      {/* ATMOSPHERIC GLOW ORBS — Enhanced Luminosity */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute -top-20 -left-20 w-[300px] h-[300px] sm:w-[550px] sm:h-[550px] rounded-full opacity-40 blur-[100px] sm:blur-[150px] animate-orb-1"
-          style={{ background: "radial-gradient(circle, #7A1F2B 0%, transparent 70%)" }} />
-        <div className="absolute top-1/3 -right-20 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full opacity-35 blur-[100px] sm:blur-[160px] animate-orb-2"
-          style={{ background: "radial-gradient(circle, #8C2500 0%, transparent 70%)" }} />
+        <div className="absolute -top-20 -left-20 w-[350px] h-[350px] sm:w-[650px] sm:h-[650px] rounded-full opacity-65 blur-[90px] sm:blur-[140px] animate-orb-1"
+          style={{ background: "radial-gradient(circle, #A82236 0%, rgba(122,31,43,0.4) 50%, transparent 70%)" }} />
+        <div className="absolute top-1/3 -right-20 w-[350px] h-[350px] sm:w-[700px] sm:h-[700px] rounded-full opacity-55 blur-[90px] sm:blur-[150px] animate-orb-2"
+          style={{ background: "radial-gradient(circle, #C84010 0%, rgba(140,37,0,0.35) 50%, transparent 70%)" }} />
+        <div className="absolute bottom-10 left-1/3 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full opacity-45 blur-[120px] animate-orb-1"
+          style={{ background: "radial-gradient(circle, #8A1A28 0%, transparent 70%)" }} />
       </div>
 
       <div className="relative z-10">
