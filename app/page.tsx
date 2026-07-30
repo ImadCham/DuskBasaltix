@@ -368,7 +368,7 @@ const LINEUP = {
   ],
   BASALTE: [
     { name: "SALVH", tag: "Afro House-Tech DJ" },
-    { name: "SHAME", tag: "Underground Techno" },
+    { name: "SHAME", tag: "Afro House / Afro Tech" },
   ],
 };
 

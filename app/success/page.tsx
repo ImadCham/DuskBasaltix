@@ -145,16 +145,24 @@ function SuccessContent() {
   // ── LOADING STATE ──
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20">
-        <div className="relative mb-6">
-          <div className="w-16 h-16 rounded-full border-4 border-bordeaux border-t-transparent animate-spin" />
+      <div className="min-h-screen flex flex-col items-center justify-center text-center px-4 py-20 relative w-full overflow-hidden">
+        {/* ATMOSPHERIC GLOW ORBS */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full opacity-40 blur-[100px] animate-orb-1"
+            style={{ background: "radial-gradient(circle, #7A1F2B 0%, transparent 70%)" }} />
         </div>
-        <h2 className="font-serif font-bold text-2xl text-white mb-2">
-          {lang === "en" ? "Verifying your order..." : "Vérification de votre commande..."}
-        </h2>
-        <p className="text-xs text-gray-400 font-sans tracking-widest uppercase animate-pulse">
-          {lang === "en" ? "Securing your digital tickets..." : "Génération de vos billets sécurisés..."}
-        </p>
+
+        <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-md mx-auto">
+          <div className="relative mb-6 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full border-4 border-bordeaux border-t-transparent animate-spin" />
+          </div>
+          <h2 className="font-serif font-bold text-2xl sm:text-3xl text-white mb-2 text-center">
+            {lang === "en" ? "Verifying your order..." : "Vérification de votre commande..."}
+          </h2>
+          <p className="text-xs sm:text-sm text-gray-400 font-sans tracking-widest uppercase animate-pulse text-center">
+            {lang === "en" ? "Securing your digital tickets..." : "Génération de vos billets sécurisés..."}
+          </p>
+        </div>
       </div>
     );
   }
