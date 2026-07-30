@@ -13,7 +13,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const defaultPublishableKey = typeof window !== "undefined"
   ? Buffer.from(
-      "cGtfdGVzdF81MVRBaGc2QmRtVEgwVzEwQnlZOEM0ZDJEdkhXY2U1TnpjN0UxUXJ1QVBPdUpkRmFsSFFpTVd3dzVvTXE3dUhPZVRrVzh6TDFuZDQ4bWhpUUFZY2dYb01mbzAwSW00MWhwSWg=",
+      "cGtfbGl2ZV81MVRBaGc2QmRtVEgwVzEwQlpnc2NmZWY5a3lEYlNzRmZ3V1BmaEcxdkpab2tOM2NtR1VkelkzYXkxUlQ0dFdLRHdTa05jOTNMN0J1Z3pmbjc1ZkN5Y3MyazAweWw2SjVtNk4=",
       "base64"
     ).toString("utf-8")
   : "";

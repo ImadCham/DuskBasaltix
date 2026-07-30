@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 
 const defaultSecretKey = Buffer.from(
-  "c2tfdGVzdF81MVRBaGc2QmRtVEgwVzEwQldQb3d0MEVadlBuQ1lub1gwRnlCbmtOVDM0MW5EcFo0M1M0ZUtMcVVXMHc3MW1pd3lpR0hGZVR6Wk1STUhHaVZzZGU1WTZIMDBWTEVuQ25TZQ==",
+  "c2tfbGl2ZV81MVRBaGc2QmRtVEgwVzEwQlhLTGs2b2RteVhnSk5vM3RhY3ZYYW1IdHpKOVg3c0JzSzR0NldyNlJvbmN4d2RPdnhGMHdHRG9OYlJ6SkZwZ0RmajEzNGozRTAwcGIzTnNQWlk=",
   "base64"
 ).toString("utf-8");
 
