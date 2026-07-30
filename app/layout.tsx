@@ -18,12 +18,28 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "DUSK EVE × BASALTE — Billetterie Officielle | Montréal",
   description:
-    "Soirée électronique underground à Montréal. DUSK EVE Sounds × BASALTE présentent une nuit de house, techno & afro electronic music. Billets disponibles maintenant.",
-  keywords: ["electronic music", "afro house", "techno", "Montreal", "Tiohtiàke", "club night", "DUSK EVE", "BASALTE", "underground"],
+    "Soirée électronique underground à Montréal. DUSK EVE Sounds × BASALTE présentent une nuit de house, afro house & afro tech. Billets disponibles maintenant.",
+  keywords: ["electronic music", "afro house", "afro tech", "Montreal", "CHI Restaurant Bar", "DUSK EVE", "BASALTE", "underground"],
+  metadataBase: new URL("https://duskbasaltix.netlify.app"),
   openGraph: {
     title: "DUSK EVE × BASALTE — Soirée Collaboration",
-    description: "Deux univers. Une nuit électrique. House, Afro Electronic & Techno à Montréal.",
+    description: "Deux univers. Une nuit électrique. Afro House & Afro Tech au CHI Restaurant Bar.",
     type: "website",
+    url: "https://duskbasaltix.netlify.app",
+    images: [
+      {
+        url: "/assets/poster.jpeg?v=3",
+        width: 1200,
+        height: 1500,
+        alt: "DUSK EVE x BASALTE Official Poster",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DUSK EVE × BASALTE — Soirée Collaboration",
+    description: "Deux univers. Une nuit électrique. Afro House & Afro Tech au CHI Restaurant Bar.",
+    images: ["/assets/poster.jpeg?v=3"],
   },
 };
 
