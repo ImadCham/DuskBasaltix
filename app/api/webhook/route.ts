@@ -71,9 +71,15 @@ export async function POST(request: NextRequest) {
   const ticketIds: string[] = JSON.parse(metadata.ticket_ids || "[]");
   const tierName = metadata.tier || "Admission";
   const totalQty = parseInt(metadata.total_qty || "1");
-  const tierItems: { tierId: string; qty: number }[] = JSON.parse(
+  const tierItems: { tierId: string; qty: number; name?: string; price?: number }[] = JSON.parse(
     metadata.tier_items || "[]"
   );
+  
+  const subtotalCents = parseInt(metadata.subtotal || "0");
+  const serviceFeeCents = parseInt(metadata.service_fee || "0");
+  const tpsCents = parseInt(metadata.tps || "0");
+  const tvqCents = parseInt(metadata.tvq || "0");
+  const totalCents = subtotalCents + serviceFeeCents + tpsCents + tvqCents;
 
   if (ticketIds.length === 0) {
     console.warn("[webhook] No ticket IDs found in metadata");
@@ -163,6 +169,14 @@ export async function POST(request: NextRequest) {
       qrImageDataUrl: qrDataUrl,
       ticketId: primaryTicketId,
       quantity: totalQty,
+      orderId: ticketIds[0],
+      subtotalCents,
+      serviceFeeCents,
+      tpsCents,
+      tvqCents,
+      totalCents,
+      tierItems,
+      orderDate: new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "2-digit", day: "2-digit" })
     });
 
     console.log(`[webhook] Sending email with PDF attachment to ${buyerEmail} via Resend (${FROM_EMAIL})...`);

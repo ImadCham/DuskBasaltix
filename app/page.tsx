@@ -82,7 +82,12 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
   const checkoutRef = useRef<HTMLDivElement>(null);
 
   const totalItems = cart.reduce((s, c) => s + c.qty, 0);
-  const totalAmount = cart.reduce((s, c) => s + c.price * c.qty, 0) / 100;
+  const subtotal = cart.reduce((s, c) => s + c.price * c.qty, 0) / 100;
+  const serviceFee = totalItems > 0 ? 2.00 : 0;
+  const taxableAmount = subtotal + serviceFee;
+  const tps = taxableAmount * 0.05;
+  const tvq = taxableAmount * 0.09975;
+  const totalAmount = taxableAmount + tps + tvq;
 
   // Active tier calculation based on inventory AND dates
   const now = new Date();
@@ -308,11 +313,30 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
             <span className="font-mono text-gray-400 font-bold">Stripe Verified</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-3 border-t border-white/15">
+          <div className="flex flex-col gap-2 pt-3 border-t border-white/15 text-[11px] sm:text-xs text-gray-300 font-sans font-medium tracking-wide">
+            <div className="flex justify-between items-center">
+              <span>{lang === "en" ? "Subtotal" : "Sous-total"}</span>
+              <span className="font-mono">{subtotal.toFixed(2)} $</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span>{lang === "en" ? "Service Fee" : "Frais de service"}</span>
+              <span className="font-mono">{serviceFee.toFixed(2)} $</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span>TPS (5%)</span>
+              <span className="font-mono">{tps.toFixed(2)} $</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span>TVQ (9.975%)</span>
+              <span className="font-mono">{tvq.toFixed(2)} $</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/15">
             <div>
               <span className="text-[11px] text-gray-400 uppercase tracking-widest block">{t.tickets.total}</span>
               <span className="text-2xl sm:text-3xl font-serif font-black text-white">
-                {(totalAmount + totalItems * 1).toFixed(2)} $ <span className="text-xs font-sans text-gray-400 font-normal">CAD</span>
+                {totalAmount.toFixed(2)} $ <span className="text-xs font-sans text-gray-400 font-normal">CAD</span>
               </span>
             </div>
             <button onClick={handleStartPayment} disabled={loading}

@@ -58,9 +58,12 @@ export async function POST(request: NextRequest) {
     const subtotalCents = items.reduce((s, i) => s + i.price * i.qty, 0);
     const mainTierName = items[0]?.tierName || "Admission";
 
-    // Service fee $1.00 per ticket in cents
-    const serviceFeeCents = totalQty * 100;
-    const totalAmountCents = subtotalCents + serviceFeeCents;
+    // Service fee flat $2.00 in cents
+    const serviceFeeCents = 200;
+    const taxableAmountCents = subtotalCents + serviceFeeCents;
+    const tpsCents = Math.round(taxableAmountCents * 0.05);
+    const tvqCents = Math.round(taxableAmountCents * 0.09975);
+    const totalAmountCents = taxableAmountCents + tpsCents + tvqCents;
 
     const ticketIds = Array.from({ length: totalQty }, () => crypto.randomUUID());
 
@@ -77,8 +80,12 @@ export async function POST(request: NextRequest) {
         tier: mainTierName,
         total_qty: String(totalQty),
         tier_items: JSON.stringify(
-          items.map((i) => ({ tierId: i.tierId, qty: i.qty }))
+          items.map((i) => ({ tierId: i.tierId, qty: i.qty, name: i.tierName, price: i.price }))
         ),
+        subtotal: String(subtotalCents),
+        service_fee: String(serviceFeeCents),
+        tps: String(tpsCents),
+        tvq: String(tvqCents),
       },
     });
 
