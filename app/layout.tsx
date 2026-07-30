@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "https://duskbasaltix.netlify.app",
     images: [
       {
-        url: "/assets/poster.jpeg?v=3",
+        url: "https://duskbasaltix.netlify.app/assets/poster.jpeg?v=3",
         width: 1200,
         height: 1500,
         alt: "DUSK EVE x BASALTE Official Poster",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DUSK EVE × BASALTE — Soirée Collaboration",
     description: "Deux univers. Une nuit électrique. Afro House & Afro Tech au CHI Restaurant Bar.",
-    images: ["/assets/poster.jpeg?v=3"],
+    images: ["https://duskbasaltix.netlify.app/assets/poster.jpeg?v=3"],
   },
 };
 
