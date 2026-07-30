@@ -269,7 +269,7 @@ function SuccessContent() {
                   {/* Poster Image — Wider */}
                   <div className="w-40 h-52 sm:w-48 sm:h-64 relative rounded-xl overflow-hidden flex-shrink-0 border-2 border-white/30 shadow-2xl group">
                     <Image
-                      src="/assets/poster.jpeg?v=2"
+                      src="/assets/poster.jpeg"
                       alt={lang === "en" ? "Official Event Poster" : "Affiche Officielle Événement"}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

@@ -459,7 +459,7 @@ export default function Home() {
           <div className="my-4 relative group max-w-[200px] sm:max-w-xs md:max-w-sm w-full mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-bordeaux via-ember to-amber-gold rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative rounded-2xl overflow-hidden border-2 border-white/25 shadow-2xl aspect-[3/4]">
-              <Image src="/assets/poster.jpeg?v=2" alt="Dusk Eve x Basalte Event Poster"
+              <Image src="/assets/poster.jpeg" alt="Dusk Eve x Basalte Event Poster"
                 fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority
                 sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, 380px" />
             </div>
