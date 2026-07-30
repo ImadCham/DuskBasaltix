@@ -142,8 +142,25 @@ export async function generateTicketPDF(params: {
   return new Uint8Array(pdfArrayBuffer);
 }
 
+
 async function fetchPosterAsBase64(): Promise<string | null> {
-  if (typeof window === "undefined") return null;
+  // SERVER SIDE: read directly from filesystem
+  if (typeof window === "undefined") {
+    try {
+      const fs = await import("fs/promises");
+      const path = await import("path");
+      // In Netlify/Next.js, public files are at process.cwd()/public/
+      const posterPath = path.join(process.cwd(), "public", "assets", "poster.jpeg");
+      const fileBuffer = await fs.readFile(posterPath);
+      const base64 = fileBuffer.toString("base64");
+      return `data:image/jpeg;base64,${base64}`;
+    } catch (e) {
+      console.error("[pdfTicket] Could not read poster from filesystem:", e);
+      return null;
+    }
+  }
+
+  // CLIENT SIDE: fetch from URL
   try {
     const response = await fetch("/assets/poster.jpeg");
     const blob = await response.blob();
