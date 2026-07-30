@@ -328,10 +328,13 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
 // ─── LINEUP ──────────────────────────────────────────────────────────────────
 const LINEUP = {
   "DUSK EVE SOUNDS": [
-    { name: "YAYA FAYÉ", tag: "Afro House / Deep House" },
+    { name: "DIGI-LIONESS", tag: "Afro Electronic / House" },
+    { name: "KAY B", tag: "Afro House / Tech" },
+    { name: "REDMONKEY", tag: "Deep House / Groove" },
   ],
   BASALTE: [
     { name: "SALVH", tag: "Afro House-Tech DJ" },
+    { name: "SHAME", tag: "Underground Techno" },
   ],
 };
 
