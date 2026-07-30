@@ -77,7 +77,7 @@ export function buildTicketEmailHtml(params: {
   const isEn = lang === "en";
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const posterSrc = posterUrl || `${appUrl}/assets/poster.jpeg`;
+  const posterSrc = posterUrl || `${appUrl}/assets/poster.jpeg?v=2`;
   const shortOrderId = (ticketId || "ORDER").substring(0, 8).toUpperCase();
 
   return `<!DOCTYPE html>

@@ -84,10 +84,24 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
   const totalItems = cart.reduce((s, c) => s + c.qty, 0);
   const totalAmount = cart.reduce((s, c) => s + c.price * c.qty, 0) / 100;
 
-  // Active tier calculation
-  const activeTierIndex = tiers.findIndex((tier) => {
+  // Active tier calculation based on inventory AND dates
+  const now = new Date();
+  const cutoffAug8 = new Date("2026-08-08T00:00:00-04:00"); // End of Aug 7 (Start of Aug 8)
+  const cutoffAug14 = new Date("2026-08-14T22:00:00-04:00"); // Event start
+
+  const activeTierIndex = tiers.findIndex((tier, idx) => {
     const available = tier.quantity_total - tier.quantity_sold;
-    return available > 0;
+    if (available <= 0) return false; // Sold out, move to next
+
+    if (idx === 0) { // Early Bird
+      if (now >= cutoffAug8) return false;
+      return true;
+    }
+    if (idx === 1) { // Admission General
+      if (now >= cutoffAug14) return false;
+      return true;
+    }
+    return true; // Last Chance
   });
 
   const activeIndex = activeTierIndex >= 0 ? activeTierIndex : tiers.length - 1;
@@ -197,11 +211,7 @@ function TicketSection({ tiers }: { tiers: TicketTier[] }) {
                   <div className="text-xl sm:text-2xl font-serif font-black text-white mb-2">
                     {tier.price.toFixed(2)} $ <span className="text-xs font-sans text-gray-400 font-normal">CAD</span>
                   </div>
-                  {isCurrentActive && (
-                    <div className="text-[11px] font-sans text-amber-400 font-bold mt-1">
-                      🔥 {available} {t.tickets.places} {t.tickets.available.toLowerCase()}
-                    </div>
-                  )}
+                  {/* Number of tickets hidden per request */}
                 </div>
 
                 {isCurrentActive ? (
@@ -449,7 +459,7 @@ export default function Home() {
           <div className="my-4 relative group max-w-[200px] sm:max-w-xs md:max-w-sm w-full mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-bordeaux via-ember to-amber-gold rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative rounded-2xl overflow-hidden border-2 border-white/25 shadow-2xl aspect-[3/4]">
-              <Image src="/assets/poster.jpeg" alt="Dusk Eve x Basalte Event Poster"
+              <Image src="/assets/poster.jpeg?v=2" alt="Dusk Eve x Basalte Event Poster"
                 fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority
                 sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, 380px" />
             </div>
@@ -512,9 +522,6 @@ export default function Home() {
                           {artist.name}
                         </span>
                       </div>
-                      <span className="text-[10px] font-sans text-gray-300 tracking-wider uppercase bg-noir-surface px-2.5 py-1 rounded border border-white/15">
-                        {artist.tag}
-                      </span>
                     </li>
                   ))}
                 </ul>
