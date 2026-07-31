@@ -448,46 +448,13 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* TWO COLLECTIVES — clean editorial */}
-          <div className="flex flex-col sm:flex-row items-stretch justify-center gap-0 my-3 w-full max-w-2xl mx-auto">
-            {/* DUSK EVE SIDE */}
-            <div className="flex-1 border border-bordeaux/60 rounded-2xl sm:rounded-r-none sm:rounded-l-2xl p-4 sm:p-6 text-left relative overflow-hidden transition-transform duration-300 hover:border-bordeaux-light/80"
-              style={{ background: "linear-gradient(135deg, rgba(122,31,43,0.35) 0%, rgba(6,6,8,0.6) 100%)" }}>
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-bordeaux to-transparent" />
-              <p className="text-[8px] sm:text-[9px] tracking-[3px] uppercase font-extrabold text-bordeaux-light mb-1 font-sans">{t.hero.duskTag}</p>
-              <h3 className="font-serif font-black text-lg sm:text-2xl text-white uppercase tracking-wider">DUSK EVE</h3>
-              <p className="text-bordeaux-light font-sans font-bold text-[10px] sm:text-xs tracking-widest uppercase mt-0.5">SOUNDS</p>
-              <p className="text-[11px] sm:text-xs text-gray-300 font-sans mt-1.5 leading-relaxed">
-                {t.hero.duskDesc}
-              </p>
-            </div>
-
-            {/* SEPARATOR */}
-            <div className="flex items-center justify-center py-1 sm:py-0 sm:px-0 relative z-10">
-              <div className="w-px h-full hidden sm:block bg-gradient-to-b from-bordeaux via-ember to-amber-gold opacity-40" />
-              <div className="h-px w-16 sm:hidden bg-gradient-to-r from-bordeaux to-ember opacity-40" />
-            </div>
-
-            {/* BASALTE SIDE */}
-            <div className="flex-1 border border-ember/60 rounded-2xl sm:rounded-l-none sm:rounded-r-2xl p-4 sm:p-6 text-left sm:text-right relative overflow-hidden transition-transform duration-300 hover:border-ember-light/80"
-              style={{ background: "linear-gradient(135deg, rgba(6,6,8,0.6) 0%, rgba(140,37,0,0.35) 100%)" }}>
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-l from-ember to-transparent" />
-              <p className="text-[8px] sm:text-[9px] tracking-[3px] uppercase font-extrabold text-ember-light mb-1 font-sans">{t.hero.basalteTag}</p>
-              <h3 className="font-sans font-black text-lg sm:text-2xl text-white uppercase tracking-widest">BASALTE</h3>
-              <p className="text-ember-light font-sans font-bold text-[10px] sm:text-xs tracking-widest uppercase mt-0.5">TIOHTIÀKE / MTL</p>
-              <p className="text-[11px] sm:text-xs text-gray-300 font-sans mt-1.5 leading-relaxed">
-                {t.hero.basalteDesc}
-              </p>
-            </div>
-          </div>
-
-          {/* POSTER */}
-          <div className="my-4 relative group max-w-[200px] sm:max-w-xs md:max-w-sm w-full mx-auto">
+          {/* POSTER — DIRECTLY HERE */}
+          <div className="my-6 relative group max-w-[240px] sm:max-w-xs md:max-w-sm w-full mx-auto">
             <div className="absolute -inset-1 bg-gradient-to-r from-bordeaux via-ember to-amber-gold rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="relative rounded-2xl overflow-hidden border-2 border-white/25 shadow-2xl aspect-[3/4]">
               <Image src="/assets/poster.jpeg" alt="Dusk Eve x Basalte Event Poster"
                 fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, 380px" />
+                sizes="(max-width: 640px) 240px, (max-width: 768px) 320px, 380px" />
             </div>
           </div>
 
