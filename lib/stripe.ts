@@ -12,9 +12,9 @@ export const stripe = new Stripe(stripeSecretKey, {
 });
 
 export const TICKET_PRICES = {
-  early_bird: 10_00,        // $10.00 in cents
-  admission_generale: 15_00, // $15.00 in cents
-  last_chance: 20_00,       // $20.00 in cents
+  early_bird: 17_00,        // $17.00 in cents
+  admission_generale: 20_00, // $20.00 in cents
+  last_chance: 25_00,       // $25.00 in cents
 } as const;
 
 export const TIER_NAMES: Record<string, string> = {
