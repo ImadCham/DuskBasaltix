@@ -79,6 +79,13 @@ export async function POST(request: NextRequest) {
     const ticketIds = Array.from({ length: totalQty }, () => crypto.randomUUID());
     const mainTierName = items[0]?.tierName || "Admission";
 
+    // --- Calculate totals for invoice metadata ---
+    const subtotalCents = items.reduce((s, i) => s + i.price * i.qty, 0);
+    const serviceFeeCents = 200; // $2.00 flat
+    const taxableAmountCents = subtotalCents + serviceFeeCents;
+    const tpsCents = Math.round(taxableAmountCents * 0.05);
+    const tvqCents = Math.round(taxableAmountCents * 0.09975);
+
     // --- Create Stripe Checkout Session ---
     // NOTE: Works identically with test and live keys.
     // To go live: just swap STRIPE_SECRET_KEY + NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY in .env.local
@@ -105,7 +112,7 @@ export async function POST(request: NextRequest) {
           text: { minimum_length: 2, maximum_length: 80 },
         },
       ],
-      // Metadata passed to webhook
+      // Metadata passed to webhook — includes full invoice breakdown
       metadata: {
         buyer_name: buyerName.trim(),
         buyer_email: buyerEmail.trim(),
@@ -113,8 +120,12 @@ export async function POST(request: NextRequest) {
         tier: mainTierName,
         total_qty: String(totalQty),
         tier_items: JSON.stringify(
-          items.map((i) => ({ tierId: i.tierId, qty: i.qty }))
+          items.map((i) => ({ tierId: i.tierId, qty: i.qty, name: i.tierName, price: i.price }))
         ),
+        subtotal: String(subtotalCents),
+        service_fee: String(serviceFeeCents),
+        tps: String(tpsCents),
+        tvq: String(tvqCents),
       },
       // Quebec taxes: add them manually to price, OR enable Stripe Tax in dashboard
       // automatic_tax: { enabled: true }, // Uncomment if Stripe Tax is enabled
