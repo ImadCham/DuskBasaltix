@@ -198,7 +198,7 @@ export default function AdminPage() {
             <span className="text-xl">🎟</span>
           </div>
           <p className="text-[10px] tracking-[4px] uppercase text-gray-600 mb-2">Admin</p>
-          <h1 className="font-serif text-2xl font-bold text-white mb-8">XPERIMENTAL VOL.2</h1>
+          <h1 className="font-serif text-2xl font-bold text-white mb-8">DUSKBASALTIX</h1>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="password"
@@ -242,7 +242,7 @@ export default function AdminPage() {
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-xl flex items-center justify-center text-sm" style={{ background: "linear-gradient(135deg, #7A1F2B, #9b2335)" }}>🎟</div>
           <div>
-            <h1 className="font-serif text-sm font-bold text-white tracking-wider uppercase">XPERIMENTAL VOL.2 — Admin</h1>
+            <h1 className="font-serif text-sm font-bold text-white tracking-wider uppercase">DuskBasaltix — Admin</h1>
             {lastRefresh && <p className="text-[10px] text-gray-600">Actualisé à {lastRefresh.toLocaleTimeString("fr-CA")}</p>}
           </div>
         </div>
