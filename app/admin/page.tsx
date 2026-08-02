@@ -198,7 +198,7 @@ export default function AdminPage() {
             <span className="text-xl">🎟</span>
           </div>
           <p className="text-[10px] tracking-[4px] uppercase text-gray-600 mb-2">Admin</p>
-          <h1 className="font-serif text-2xl font-bold text-white mb-8">DUSKBASALTIX</h1>
+          <h1 className="font-serif text-2xl font-bold text-white mb-8">DuskBasaltix</h1>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="password"
